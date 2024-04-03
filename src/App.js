@@ -1,9 +1,15 @@
 import TodoTemplate from "./components/TodoTemplate";
+import TodoInsert from "./components/TodoInsert";
+import TodoListItem from "./components/TodoListItem";
+import TodoList from "./components/TodoList";
 
 const App = () => {
   return (
     <div>
-      <TodoTemplate></TodoTemplate>
+      <TodoTemplate>
+        <TodoInsert />
+        <TodoList />
+      </TodoTemplate>
     </div>
   );
 };
