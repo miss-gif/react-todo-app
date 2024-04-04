@@ -9,18 +9,27 @@ import {
 import "../style/TodoListItem.scss";
 import classNames from "classnames";
 
-const TodoListItem = () => {
-  // 테스트 코드
-  const [checked, setChecked] = useState(true);
+const TodoListItem = ({ todo, OnRemove, OnToggle }) => {
+  const { id, text, checked } = todo;
 
   return (
     <div className="TodoListItem">
-      <div className={classNames("checkbox", { checked })}>
+      <div
+        className={classNames("checkbox", { checked })}
+        onClick={() => {
+          OnToggle(id);
+        }}
+      >
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
 
-        <div className="text">리액트 공부하기</div>
+        <div className="text">{text}</div>
       </div>
-      <div className="remove">
+      <div
+        className="remove"
+        onClick={() => {
+          OnRemove(id);
+        }}
+      >
         <MdRemoveCircleOutline />
       </div>
     </div>

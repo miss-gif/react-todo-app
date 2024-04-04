@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MdAdd } from "react-icons/md";
 import "../style/TodoInsert.scss";
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState("");
   const onChange = e => {
     setValue(e.target.value);
@@ -10,6 +10,7 @@ const TodoInsert = () => {
   };
 
   const onSubmit = e => {
+    onInsert(value);
     e.preventDefault();
     setValue("");
   };
